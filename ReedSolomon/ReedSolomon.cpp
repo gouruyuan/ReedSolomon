@@ -385,7 +385,8 @@ void ReedSolomon::createGenerator(Poly* out, int nsym)
 	out->coef[0] = 1;
 	Poly factor(2, nullptr);
 	factor.coef[0] = 1;
-	for (int i = 0; i < nsym; i++)
+	int startRoot=0;
+	for (int i = 0+startRoot; i < nsym+startRoot; i++)
 	{
 		factor.coef[1] = this->gf.powTable[i];
 		Poly_Mult(out, out, &factor, &this->gf);
